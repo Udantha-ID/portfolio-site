@@ -1,3 +1,4 @@
+import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <Navbar/>
         <Hero/>
+        <Grid/>
       </div>
     </main>
   );
