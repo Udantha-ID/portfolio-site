@@ -1,7 +1,17 @@
+"use client";
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import  { GlobeDemo }  from './GridGlobe';
-import { loop, Loop } from "three/webgpu";
+import Lottie from 'lottie-react';
+import animationData from '@/data/confetti.json'
+import { useState } from "react";
+import Button from "./Button";
+import { IoCopyOutline } from "react-icons/io5";
+import { BsDownload, BsLinkedin } from "react-icons/bs";
+import { AuroraBackground } from "./AuroraBackground";
+import DownloadButton from "./DownloadButton";
+import { FaDownload } from "react-icons/fa";
+
 
 export const BentoGrid = ({
   className,
@@ -44,6 +54,23 @@ export const BentoGridItem = ({
   
   
 }) => {
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    window.open("https://www.linkedin.com/in/induru-udantha/", "_blank");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handelDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/InduruUdantha.pdf';
+    link.download = 'InduruUdantha.pdf';
+    link.click();
+  };
+  
+
   return (
     <div
       className={cn(
@@ -55,7 +82,7 @@ export const BentoGridItem = ({
         backgroundColor:' linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 28%, rgba(0,188,226,1) 100%)',
       }}
     >
-      <div className={`${id === 6} && 'flex justify-center h-full'`}>
+      <div className={`${id === 6} && 'flex justify-center'} 'h-full`}>
           <div className="w-full h-full absolute">
             <img src={img} 
                  alt={img} 
@@ -78,7 +105,13 @@ export const BentoGridItem = ({
           </BackgroundGradientAnimation>
            
         )}
-
+          {/* {id === 2 && (
+              // add background animation , remove the p tag
+              <BackgroundGradientAnimation>
+                <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"/>
+              </BackgroundGradientAnimation>
+           
+          )} */}
         <div className={cn(titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10')}>
             <div className="font-sans font-extralight text-[#c1c2d3] text-xs md:text-xs lg:text-base z-10 dark:text-neutral-300">
               {description}
@@ -87,11 +120,32 @@ export const BentoGridItem = ({
             <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
           {title}
           </div>
-          {/* {id === 1 && <GlobeDemo/>} */}
+          {/* {id === 2 && <GlobeDemo/>} */}
+
+          {id === 2 && (
+          <div className="mt-5 relative">
+              <div className={`absolute -bottom-5 right-7`}>
+              <Lottie
+              options={{
+                animationData:{animationData},
+                loop: true,
+                autoplay: true,
+              }} height={200} width={400}
+            />
+              </div>
+              <DownloadButton
+                title="DOWNLOAD-CV"
+                icon={<FaDownload/>}
+                position="right"
+                otherClasses="flex gap-3 justify-center items-center"
+                handelDownload={handelDownload}
+              />
+          </div>
+        )}
 
         {id === 3 && (
-          <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-            <div className="flex flex-col gap-3 lg:gap-8">
+          <div className="flex gap-0 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
+            <div className="flex flex-col gap-2 lg:gap-8">
                 {['React.js', 'Next.js', 'TypeScript.js'].map((item) => (
                   <span key={item} className="py-2 lg:py4 lg:px-3 px-3 text-xs lg:text-base opacity-50 
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]">
@@ -113,14 +167,26 @@ export const BentoGridItem = ({
           </div>
         )}
         
-        {/* {id === 6 && (
+        {id === 6 && (
           <div className="mt-5 relative">
               <div className={`absolute -bottom-5 right-7`}>
-                  
+              <Lottie
+              options={{
+                animationData:{animationData},
+                loop: true,
+                autoplay: true,
+              }} height={200} width={400}
+            />
               </div>
+              <Button
+                title="Likedin Profile"
+                icon={<BsLinkedin/>}
+                position="right"
+                otherClasses="!bg-[#161A31]"
+                handleCopy={handleCopy}
+              />
           </div>
-        )} */}
-        
+        )}
       </div>
     </div>
   </div>

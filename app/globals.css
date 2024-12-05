@@ -33,6 +33,12 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+
+    --yellow-500: #fcd34d;
+    --red-500: #ef4444;
+    --blue-500: #3b82f6;
+    --cyan-500: #06b6d4;
+    --violet-500: #8b5cf6;
   }
 
   .dark {

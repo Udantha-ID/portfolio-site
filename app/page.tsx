@@ -1,6 +1,8 @@
+import { StickyScrollRevealDemo } from "@/components/Experiance";
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import RecentProjects from "@/components/RecentProjects";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
         <Navbar/>
         <Hero/>
         <Grid/>
+        <RecentProjects/>
+        <StickyScrollRevealDemo/>
       </div>
     </main>
   );
