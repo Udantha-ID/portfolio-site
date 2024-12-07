@@ -1,0 +1,172 @@
+"use client";
+import React, { useState } from "react";
+import { MotionProps, motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
+import { SiGithub, SiTiktok, SiGitter, SiYoutube, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import emailjs from "emailjs-com";
+
+export const RevealBento = () => {
+  const [form, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...form, [name]: value });
+  };
+
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault(); // Prevent the default form submission to avoid page refresh.
+  
+//     // Use the EmailJS `send` function to send the form data.
+//     emailjs
+//       .send(
+//         "service_z0btt2d",   // Service ID: Replace with the actual service ID from your EmailJS account.
+//         "template_22k635l",  // Template ID: Replace with the actual template ID from your EmailJS account.
+//         {
+//           name: form.name,       // Form data: Matches the placeholder `{{name}}` in your EmailJS template.
+//           email: form.email,     // Form data: Matches the placeholder `{{email}}`.
+//           message: form.message,// Form data: Matches the placeholder `{{message}}`.
+//           to_name: "Induru Udantha",
+//           to_email: "induruudantha45615@gmail.com"
+
+//         },
+//         "j5XhaYmWWVErqfqKN" // Public Key: Replace with your EmailJS public key for authentication.
+//       )
+//       .then(
+//         (result) => {
+//           // Success callback: If the email is sent successfully.
+//           alert("Message sent successfully!"); // Notify the user of successful submission.
+//           setFormData({ name: "", email: "", message: "" }); // Reset the form fields after submission.
+//         },
+//         (error) => {
+//           // Error callback: If there is an issue sending the email.
+//           alert("Failed to send message. Please try again later."); // Notify the user of failure.
+//           console.error(error); // Log the error for debugging.
+//         }
+//       );
+//   };
+  
+
+  return (
+    <section id="contact" className="min-h-fit bg-gradient-to-br from-black-100 to-purple-900 px-6 py-12 text-zinc-60">
+  <div className="flex flex-col lg:flex-row gap-32 items-start max-w-6xl mx-auto">
+    {/* Left Side: Form */}
+    <motion.form
+      // onSubmit={handleSubmit}
+      variants={{
+        initial: { opacity: 0, y: 50 },
+        animate: { opacity: 1, y: 0 },
+      }}
+      className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr from-zinc-800 via-zinc-900 to-gray-800 p-8 shadow-2xl text-white"
+    >
+      <h2 className="mb-6 text-3xl font-extrabold  bg-clip-text">
+        Send us a Message
+      </h2>
+      <div className="mb-6">
+        <label htmlFor="name" className="block mb-2 text-sm font-medium text-purple-300">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={form.name}
+          onChange={handleChange}
+          className="w-full rounded-lg border border-gray-600 bg-zinc-700 p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          required
+        />
+      </div>
+      <div className="mb-6">
+        <label htmlFor="email" className="block mb-2 text-sm font-medium text-purple-300">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={form.email}
+          onChange={handleChange}
+          className="w-full rounded-lg border border-gray-600 bg-zinc-700 p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          required
+        />
+      </div>
+      <div className="mb-6">
+        <label htmlFor="message" className="block mb-2 text-sm font-medium text-purple-300">
+          Message
+        </label>
+        <textarea
+          name="message"
+          id="message"
+          rows={5}
+          value={form.message}
+          onChange={handleChange}
+          className="w-full rounded-lg border border-gray-600 bg-zinc-700 p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+          required
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 p-3 text-center text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg"
+      >
+        Send Message
+      </button>
+    </motion.form>
+
+    {/* Right Side: Social Media Icons */}
+    <motion.div
+      initial="initial"
+      animate="animate"
+      transition={{
+        staggerChildren: 0.1,
+      }}
+      className="grid justify-center top-auto items-center grid-cols-2 gap-28 lg:w-1/2"
+    >
+      <SocialBlock
+        href="#"
+        icon={<SiLinkedin/>}
+        bgColor="bg-gradient-to-tr from-blue-600 to-blue-400"
+      />
+      <SocialBlock
+        href="#"
+        icon={<SiGithub/>}
+        bgColor="bg-gradient-to-tr from-gray-900 to-gray-600"
+      />
+      <SocialBlock
+        href="#"
+        icon={<SiTiktok/>}
+        bgColor="bg-gradient-to-tr from-black to-gray-900"
+      />
+      <SocialBlock
+        href="#"
+        icon={<SiWhatsapp/>}
+        bgColor="bg-gradient-to-tr from-green-500 to-green-300"
+      />
+    </motion.div>
+  </div>
+</section>
+  );
+};
+
+type BlockProps = {
+  href: string;
+  icon: React.ReactNode;
+  bgColor: string;
+};
+
+const SocialBlock = ({ href, icon, bgColor }: BlockProps) => (
+    <motion.div
+      whileHover={{ scale: 2.1 }}
+      className={twMerge(
+        `flex justify-center items-center h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300`,
+        bgColor
+      )}
+    >
+      <a href={href} className="text-5xl md:text-6xl text-white">
+        {icon}
+      </a>
+    </motion.div>
+  );
+  

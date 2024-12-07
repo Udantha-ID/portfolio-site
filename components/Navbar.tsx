@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import menu from "./../assets/menu.svg";
-import myLogo from "./../assets/Artificial.png";
+//import menu from "@assets/menu.svg";
 import logo from "@/assets/logo.svg"
 
 const Navbar = () => {
@@ -66,27 +65,27 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu */}
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="sm:hidden flex flex-1 m-10 justify-end items-center">
           <img
-            src={toggle ? close : menu}
+            src="/menu.svg"
             alt="menu"
             width={28}
             height={28}
             onClick={() => setToggle(!toggle)}
-            className="cursor-pointer"
+            className="cursor-pointer text-blue-200"
           />
 
           <div
             className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+              !toggle ? "hidden" : "flex sm:hidden"
+            } p-6 black-gradient absolute top-20 right-0 mx- my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
                   className={`font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
+                    active === nav.title ? "text-white" : "text-blue-200"
                   }`}
                   onClick={() => {
                     setToggle(false);

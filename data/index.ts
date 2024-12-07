@@ -96,7 +96,7 @@ export const navItems = [
       img: "/p3.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
       link: "#",
-      githubLink: "https://github.com/Udantha-ID/Event-plane",
+      githubLink: "https://github.com/Udantha-ID/My-Portfolio-Profile",
     },
     {
       id: 4,

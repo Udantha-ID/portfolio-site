@@ -1,6 +1,10 @@
+"use client";
+import { RevealBento } from "@/components/Contact";
 import { StickyScrollRevealDemo } from "@/components/Experiance";
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
+import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
+import { Example } from "@/components/Links";
 import Navbar from "@/components/Navbar";
 import RecentProjects from "@/components/RecentProjects";
 
@@ -12,8 +16,11 @@ export default function Home() {
         <Navbar/>
         <Hero/>
         <Grid/>
+        <HeroParallaxDemo/>
         <RecentProjects/>
         <StickyScrollRevealDemo/>
+        {/* <Example/> */}
+        <RevealBento/>
       </div>
     </main>
   );

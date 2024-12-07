@@ -5,23 +5,13 @@ import Image from "next/image";
 
 const content = [
   {
-    title: "Collaborative Editing",
+    title: "Programming ",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
-    content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Collaborative Editing
-      </div>
-    ),
-  },
-  {
-    title: "Real time changes",
-    description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      "Java: A popular, general-purpose programming language known for its portability across platforms.C: A low-level programming language used for system and application software development.C++: An extension of C with object-oriented features, used for performance-critical applications.Python: A versatile, high-level programming language known for its simplicity and use in various fields like web development, data science, and automation.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/sss.png"
+          src="/programming1.png"
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -31,9 +21,25 @@ const content = [
     ),
   },
   {
-    title: "Version control",
+    title: "Web Development",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "HTML 5: The latest version of the standard language for creating web pages and applications.CSS3: The latest version of CSS used to style web pages, offering advanced features like animations and flexbox.JavaScript: A programming language that enables interactivity on websites, commonly used alongside HTML and CSS.PHP: A server-side scripting language mainly used for web development to create dynamic web pages.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src="/programming.png"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Frameworks",
+    description:
+      "Node.js: A runtime environment that allows JavaScript to be used on the server side, enabling the development of scalable server applications.React.js: A JavaScript library for building user interfaces, especially single-page applications, with a component-based architecture.Vite.js: A build tool and development server designed to provide a fast and efficient development experience for modern web projects.Next.js: A React-based framework used for server-side rendering, static site generation, and building web applications with enhanced performance.TailwindCSS: A utility-first CSS framework that allows you to create custom designs by combining utility classes directly in your HTML",
     content: (
       <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
         Version control
@@ -41,24 +47,61 @@ const content = [
     ),
   },
   {
-    title: "Running out of content",
+    title: "Mobile Application Development",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "Android Studio: An integrated development environment (IDE) used for building Android apps, primarily with Java or Kotlin. Kotlin: A modern programming language for Android development, fully interoperable with Java. Flutter: A UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. Dart: A programming language used with Flutter for building mobile and web applications.",
+
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Running out of content
-      </div>
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src="/app.png"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        alt="linear board demo"
+      />
+    </div>
+    ),
+  },
+  {
+    title: "Database",
+    description:"MongoDB: A NoSQL database that stores data in a flexible, document-oriented format. MySQL: A widely used relational database management system (RDBMS), known for its stability and speed. SQLite: A self-contained, serverless, and lightweight database engine often used for embedded applications.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src="/database.png"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        alt="linear board demo"
+      />
+    </div>
+    ),
+  },
+  {
+    title: "Version Control",
+    description:"Git: A distributed version control system used to track changes in source code during software development. GitHub: A platform that hosts Git repositories, enabling collaboration and sharing of code with version control.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+      <Image
+        src="/versioncontrol.png"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        alt="linear board demo"
+      />
+    </div>
     ),
   },
 ];
 export function StickyScrollRevealDemo() {
   return (
 
-    <section id="expirence" className="py-16">
+    <section id="expirence" className="py-28">
         <h1 className="heading">
         Experience
       </h1>
-        <div className="flex flex-row py-10 p-90  justify-center items-center ">
+        <div className="flex flex-row py-48 p-90 w-full h-[500px] justify-center items-center">
             <StickyScroll 
                 content={content} 
             />

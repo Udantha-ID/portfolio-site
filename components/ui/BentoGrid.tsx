@@ -8,7 +8,6 @@ import { useState } from "react";
 import Button from "./Button";
 import { IoCopyOutline } from "react-icons/io5";
 import { BsDownload, BsLinkedin } from "react-icons/bs";
-import { AuroraBackground } from "./AuroraBackground";
 import DownloadButton from "./DownloadButton";
 import { FaDownload } from "react-icons/fa";
 
