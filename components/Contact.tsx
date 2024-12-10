@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import { MotionProps, motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import { SiGithub, SiTiktok, SiGitter, SiYoutube, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiGithub, SiTiktok, SiGitter, SiYoutube, SiLinkedin, SiWhatsapp, SiFacebook } from "react-icons/si";
 import emailjs from "emailjs-com";
+import { BackgroundBeamsWithCollision } from "./ui/AuroraBackgroundProps ";
+import { DivOrigami } from "./DivOrigami";
 
 export const RevealBento = () => {
   const [form, setFormData] = useState({
@@ -51,8 +53,11 @@ export const RevealBento = () => {
   
 
   return (
-    <section id="contact" className="min-h-fit bg-gradient-to-br from-black-100 to-purple-900 px-6 py-12 text-zinc-60">
-  <div className="flex flex-col lg:flex-row gap-32 items-start max-w-6xl mx-auto">
+    <BackgroundBeamsWithCollision className="w-full">
+    <section id="contact" className="w-full  lg:w-full  text-zinc-100">
+      <h1 className="heading text-2xl md:text-4xl p-10 lg:text-5xl font-bold">Contact Us</h1>
+  {/* <BackgroundBeamsWithCollision>      */}
+  <div className="flex flex-col-2 py-8  lg:flex-row gap-32 items-start max-w-6xl mx-auto">
     {/* Left Side: Form */}
     <motion.form
       // onSubmit={handleSubmit}
@@ -60,7 +65,7 @@ export const RevealBento = () => {
         initial: { opacity: 0, y: 50 },
         animate: { opacity: 1, y: 0 },
       }}
-      className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr from-zinc-800 via-zinc-900 to-gray-800 p-8 shadow-2xl text-white"
+      className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr fbg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 p-8 shadow-2xl text-white"
     >
       <h2 className="mb-6 text-3xl font-extrabold  bg-clip-text">
         Send us a Message
@@ -122,31 +127,41 @@ export const RevealBento = () => {
       transition={{
         staggerChildren: 0.1,
       }}
-      className="grid justify-center top-auto items-center grid-cols-2 gap-28 lg:w-1/2"
+      className="grid justify-center top-auto items-center grid-cols-4 gap-12 lg:w-1/2"
     >
       <SocialBlock
-        href="#"
+        href="https://www.linkedin.com/in/induru-udantha/"
         icon={<SiLinkedin/>}
         bgColor="bg-gradient-to-tr from-blue-600 to-blue-400"
+        target="_blank"
       />
       <SocialBlock
-        href="#"
+        href="https://github.com/Udantha-ID"
         icon={<SiGithub/>}
         bgColor="bg-gradient-to-tr from-gray-900 to-gray-600"
+        target="_blank"
       />
       <SocialBlock
-        href="#"
-        icon={<SiTiktok/>}
-        bgColor="bg-gradient-to-tr from-black to-gray-900"
+        href="https://web.facebook.com/iduru.udantha"
+        icon={<SiFacebook/>}
+        bgColor="bg-gradient-to-tr from-blue-800 to-blue-700"
+        target="_blank"
       />
       <SocialBlock
-        href="#"
+        href="https://wa.me/94756558954"
         icon={<SiWhatsapp/>}
         bgColor="bg-gradient-to-tr from-green-500 to-green-300"
+        target="_blank"
       />
+
+      <DivOrigami/>
     </motion.div>
   </div>
+  {/* </BackgroundBeamsWithCollision> */}
 </section>
+</BackgroundBeamsWithCollision>
+
+
   );
 };
 
@@ -156,17 +171,23 @@ type BlockProps = {
   bgColor: string;
 };
 
-const SocialBlock = ({ href, icon, bgColor }: BlockProps) => (
-    <motion.div
-      whileHover={{ scale: 2.1 }}
-      className={twMerge(
-        `flex justify-center items-center h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300`,
-        bgColor
-      )}
+const SocialBlock = ({ href, icon, bgColor, target }: BlockProps & { target?: string }) => (
+  <motion.div
+    whileHover={{ scale: 2.1 }}
+    className={twMerge(
+      `flex justify-center items-center h-32 w-32 md:h-40 md:w-24 lg:h-24 lg:w-24 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300`,
+      bgColor
+    )}
+  >
+    <a 
+      href={href} 
+      className="text-5xl md:text-6xl text-white"
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
     >
-      <a href={href} className="text-5xl md:text-6xl text-white">
-        {icon}
-      </a>
-    </motion.div>
-  );
+      {icon}
+    </a>
+  </motion.div>
+);
+
   

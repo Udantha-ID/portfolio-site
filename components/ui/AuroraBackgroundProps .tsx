@@ -1,54 +1,294 @@
 "use client";
 import { cn } from "@/utils/cn";
-import React, { ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
 
-interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-  children: ReactNode;
-  showRadialGradient?: boolean;
-}
-
-export const AuroraBackground = ({
-  className,
+export const BackgroundBeamsWithCollision = ({
   children,
-  showRadialGradient = true,
-  ...props
-}: AuroraBackgroundProps) => {
-  return (
-    <main>
-      <div
-        className={cn(
-          "relative flex flex-col  h-[80vh] w-[40vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
-          className
-        )}
-        {...props}
-      >
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            //   I'm sorry but this is what peak developer performance looks like // trigger warning
-            className={cn(
-              `
-            [--white-gradient:repeating-linear-gradient(100deg,var(--white)_0%,var(--white)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--white)_16%)]
-            [--dark-gradient:repeating-linear-gradient(100deg,var(--black)_0%,var(--black)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--black)_16%)]
-            [--aurora:repeating-linear-gradient(100deg,var(--blue-500)_10%,var(--indigo-300)_15%,var(--blue-300)_20%,var(--violet-200)_25%,var(--blue-400)_30%)]
-            [background-image:var(--white-gradient),var(--aurora)]
-            dark:[background-image:var(--dark-gradient),var(--aurora)]
-            [background-size:300%,_200%]
-            [background-position:50%_50%,50%_50%]
-            filter blur-[10px] invert dark:invert-0
-            after:content-[""] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] 
-            after:dark:[background-image:var(--dark-gradient),var(--aurora)]
-            after:[background-size:200%,_100%] 
-            after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference
-            pointer-events-none
-            absolute -inset-[10px] opacity-50 will-change-transform`,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const parentRef = useRef<HTMLDivElement>(null);
 
-              showRadialGradient &&
-                `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
-            )}
-          ></div>
-        </div>
-        {children}
-      </div>
-    </main>
+  const beams = [
+    {
+      initialX: 10,
+      translateX: 10,
+      duration: 7,
+      repeatDelay: 2,
+      delay: 2,
+    },
+    {
+      initialX: 600,
+      translateX: 600,
+      duration: 3,
+      repeatDelay: 3,
+      delay: 4,
+    },
+    {
+      initialX: 100,
+      translateX: 100,
+      duration: 7,
+      repeatDelay: 7,
+      className: "h-6",
+    },
+    {
+      initialX: 400,
+      translateX: 400,
+      duration: 5,
+      repeatDelay: 14,
+      delay: 4,
+    },
+    {
+        initialX: 400,
+        translateX: 400,
+        duration: 5,
+        repeatDelay: 14,
+        delay: 4,
+      },
+      {
+        initialX: 400,
+        translateX: 400,
+        duration: 5,
+        repeatDelay: 14,
+        delay: 4,
+      },
+      {
+        initialX: 400,
+        translateX: 400,
+        duration: 5,
+        repeatDelay: 14,
+        delay: 4,
+      },
+      {
+        initialX: 400,
+        translateX: 400,
+        duration: 5,
+        repeatDelay: 14,
+        delay: 4,
+      },
+      {
+        initialX: 400,
+        translateX: 400,
+        duration: 5,
+        repeatDelay: 14,
+        delay: 4,
+      },
+    {
+      initialX: 800,
+      translateX: 800,
+      duration: 11,
+      repeatDelay: 2,
+      className: "h-20",
+    },
+    {
+      initialX: 1000,
+      translateX: 1000,
+      duration: 4,
+      repeatDelay: 2,
+      className: "h-12",
+    },
+    {
+      initialX: 1200,
+      translateX: 1200,
+      duration: 6,
+      repeatDelay: 4,
+      delay: 2,
+      className: "h-6",
+    },
+  ];
+
+  return (
+    <div
+      ref={parentRef}
+      className={cn(
+        " md:h-[50rem] h-screen from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full  overflow-hidden",
+        //h-screen if you want bigger
+        className
+      )}
+    >
+      {beams.map((beam) => (
+        <CollisionMechanism
+          key={beam.initialX + "beam-idx"}
+          beamOptions={beam}
+          containerRef={containerRef}
+          parentRef={parentRef}
+        />
+      ))}
+
+      {children}
+      <div
+        ref={containerRef}
+        className="absolute bottom-0 bg-neutral-100 w-full inset-x-0 pointer-events-none"
+        style={{
+          boxShadow:
+            "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset",
+        }}
+      ></div>
+    </div>
+  );
+};
+
+const CollisionMechanism = React.forwardRef<
+  HTMLDivElement,
+  {
+    containerRef: React.RefObject<HTMLDivElement>;
+    parentRef: React.RefObject<HTMLDivElement>;
+    beamOptions?: {
+      initialX?: number;
+      translateX?: number;
+      initialY?: number;
+      translateY?: number;
+      rotate?: number;
+      className?: string;
+      duration?: number;
+      delay?: number;
+      repeatDelay?: number;
+    };
+  }
+>(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+  const beamRef = useRef<HTMLDivElement>(null);
+  const [collision, setCollision] = useState<{
+    detected: boolean;
+    coordinates: { x: number; y: number } | null;
+  }>({
+    detected: false,
+    coordinates: null,
+  });
+  const [beamKey, setBeamKey] = useState(0);
+  const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
+
+  useEffect(() => {
+    const checkCollision = () => {
+      if (
+        beamRef.current &&
+        containerRef.current &&
+        parentRef.current &&
+        !cycleCollisionDetected
+      ) {
+        const beamRect = beamRef.current.getBoundingClientRect();
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const parentRect = parentRef.current.getBoundingClientRect();
+
+        if (beamRect.bottom >= containerRect.top) {
+          const relativeX =
+            beamRect.left - parentRect.left + beamRect.width / 2;
+          const relativeY = beamRect.bottom - parentRect.top;
+
+          setCollision({
+            detected: true,
+            coordinates: {
+              x: relativeX,
+              y: relativeY,
+            },
+          });
+          setCycleCollisionDetected(true);
+        }
+      }
+    };
+
+    const animationInterval = setInterval(checkCollision, 50);
+
+    return () => clearInterval(animationInterval);
+  }, [cycleCollisionDetected, containerRef]);
+
+  useEffect(() => {
+    if (collision.detected && collision.coordinates) {
+      setTimeout(() => {
+        setCollision({ detected: false, coordinates: null });
+        setCycleCollisionDetected(false);
+      }, 2000);
+
+      setTimeout(() => {
+        setBeamKey((prevKey) => prevKey + 1);
+      }, 2000);
+    }
+  }, [collision]);
+
+  return (
+    <>
+      <motion.div
+        key={beamKey}
+        ref={beamRef}
+        animate="animate"
+        initial={{
+          translateY: beamOptions.initialY || "-200px",
+          translateX: beamOptions.initialX || "0px",
+          rotate: beamOptions.rotate || 0,
+        }}
+        variants={{
+          animate: {
+            translateY: beamOptions.translateY || "1800px",
+            translateX: beamOptions.translateX || "0px",
+            rotate: beamOptions.rotate || 0,
+          },
+        }}
+        transition={{
+          duration: beamOptions.duration || 8,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "linear",
+          delay: beamOptions.delay || 0,
+          repeatDelay: beamOptions.repeatDelay || 0,
+        }}
+        className={cn(
+          "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
+          beamOptions.className
+        )}
+      />
+      <AnimatePresence>
+        {collision.detected && collision.coordinates && (
+          <Explosion
+            key={`${collision.coordinates.x}-${collision.coordinates.y}`}
+            className=""
+            style={{
+              left: `${collision.coordinates.x}px`,
+              top: `${collision.coordinates.y}px`,
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+});
+
+CollisionMechanism.displayName = "CollisionMechanism";
+
+const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
+  const spans = Array.from({ length: 20 }, (_, index) => ({
+    id: index,
+    initialX: 0,
+    initialY: 0,
+    directionX: Math.floor(Math.random() * 80 - 40),
+    directionY: Math.floor(Math.random() * -50 - 10),
+  }));
+
+  return (
+    <div {...props} className={cn("absolute z-50 h-2 w-2", props.className)}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-lg"
+      ></motion.div>
+      {spans.map((span) => (
+        <motion.span
+          key={span.id}
+          initial={{ x: span.initialX, y: span.initialY, opacity: 1 }}
+          animate={{
+            x: span.directionX,
+            y: span.directionY,
+            opacity: 0,
+          }}
+          transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
+          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-indigo-500 to-purple-500"
+        />
+      ))}
+    </div>
   );
 };

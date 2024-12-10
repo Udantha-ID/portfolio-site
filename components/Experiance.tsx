@@ -97,7 +97,7 @@ const content = [
 export function StickyScrollRevealDemo() {
   return (
 
-    <section id="expirence" className="py-28">
+    <section id="expirence" className="py-12">
         <h1 className="heading">
         Experience
       </h1>

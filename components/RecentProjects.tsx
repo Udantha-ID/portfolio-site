@@ -5,7 +5,7 @@ import { IconBrandGithub } from "@tabler/icons-react";
 
 function RecentProjects() {
   return (
-    <section id="project">
+    <section id="project" className="py-24">
       <h1 className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold">
         Campus and Freelancer <span className="text-purple">Recent Projects</span>
       </h1>
