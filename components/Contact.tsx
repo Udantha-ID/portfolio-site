@@ -7,8 +7,14 @@ import emailjs from "emailjs-com";
 import { BackgroundBeamsWithCollision } from "./ui/AuroraBackgroundProps ";
 import { DivOrigami } from "./DivOrigami";
 
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 export const RevealBento = () => {
-  const [form, setFormData] = useState({
+  const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
     message: "",
@@ -16,40 +22,40 @@ export const RevealBento = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...form, [name]: value });
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault(); // Prevent the default form submission to avoid page refresh.
-  
-//     // Use the EmailJS `send` function to send the form data.
-//     emailjs
-//       .send(
-//         "service_z0btt2d",   // Service ID: Replace with the actual service ID from your EmailJS account.
-//         "template_22k635l",  // Template ID: Replace with the actual template ID from your EmailJS account.
-//         {
-//           name: form.name,       // Form data: Matches the placeholder `{{name}}` in your EmailJS template.
-//           email: form.email,     // Form data: Matches the placeholder `{{email}}`.
-//           message: form.message,// Form data: Matches the placeholder `{{message}}`.
-//           to_name: "Induru Udantha",
-//           to_email: "induruudantha45615@gmail.com"
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
 
-//         },
-//         "j5XhaYmWWVErqfqKN" // Public Key: Replace with your EmailJS public key for authentication.
-//       )
-//       .then(
-//         (result) => {
-//           // Success callback: If the email is sent successfully.
-//           alert("Message sent successfully!"); // Notify the user of successful submission.
-//           setFormData({ name: "", email: "", message: "" }); // Reset the form fields after submission.
-//         },
-//         (error) => {
-//           // Error callback: If there is an issue sending the email.
-//           alert("Failed to send message. Please try again later."); // Notify the user of failure.
-//           console.error(error); // Log the error for debugging.
-//         }
-//       );
-//   };
+      // Use the EmailJS `send` function to send the form data.
+      emailjs
+        .send(
+          "service_z0btt2d", // Service ID
+          "template_22k635l", // Template ID
+          {
+            name: form.name, // Matches the placeholder `{{name}}` in your EmailJS template.
+            email: form.email, // Matches the placeholder `{{email}}`.
+            message: form.message, // Matches the placeholder `{{message}}`.
+            to_name: "Induru Udantha",
+            to_email: "induruudantha45615@gmail.com",
+          },
+          "j5XhaYmWWVErqfqKN" // Public Key
+        )
+        .then(
+          (result) => {
+            alert("Message sent successfully!"); // Notify the user of successful submission.
+            setForm({ name: "", email: "", message: "" }); // Reset the form fields.
+          },
+          (error) => {
+            alert("Failed to send message. Please try again later."); // Notify the user of failure.
+            console.error("EmailJS Error:", error); // Log the error for debugging.
+          }
+        );
+    };
   
 
   return (
@@ -60,15 +66,19 @@ export const RevealBento = () => {
   <div className="flex flex-col-2 py-8  lg:flex-row gap-32 items-start max-w-6xl mx-auto">
     {/* Left Side: Form */}
     <motion.form
+    whileInView={{opacity: 1, x: 0}}
+    initial={{opacity: 0, x: -100}}
+    transition={{duration: 0.5, delay: 0.5}}
       // onSubmit={handleSubmit}
-      variants={{
-        initial: { opacity: 0, y: 50 },
-        animate: { opacity: 1, y: 0 },
-      }}
+      // variants={{
+      //   initial: { opacity: 0, y: 50 },
+      //   animate: { opacity: 1, y: 0 },
+      // }}
+      onSubmit={handleSubmit}
       className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr fbg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 p-8 shadow-2xl text-white"
     >
       <h2 className="mb-6 text-3xl font-extrabold  bg-clip-text">
-        Send us a Message
+        Send a Email :
       </h2>
       <div className="mb-6">
         <label htmlFor="name" className="block mb-2 text-sm font-medium text-purple-300">
@@ -122,11 +132,10 @@ export const RevealBento = () => {
 
     {/* Right Side: Social Media Icons */}
     <motion.div
-      initial="initial"
+    whileInView={{opacity:1, x:0}}
+    initial={{opacity:0, x:100}}
+    transition={{duration:0.5, delay:0.5}}
       animate="animate"
-      transition={{
-        staggerChildren: 0.1,
-      }}
       className="grid justify-center top-auto items-center grid-cols-4 gap-12 lg:w-1/2"
     >
       <SocialBlock

@@ -2,13 +2,18 @@ import React from "react";
 import { projects } from "@/data";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/Projectcard";
 import { IconBrandGithub } from "@tabler/icons-react";
+import { motion } from 'framer-motion'
 
 function RecentProjects() {
   return (
-    <section id="project" className="py-24">
-      <h1 className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold">
+    <section id="project" className="py-11">
+      <motion.h1 
+      whileInView={{opacity: 1, y: 0}}
+      initial={{opacity: 0, y: 50}}
+      transition={{duration: 0.5, delay: 0.5}}
+      className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold">
         Campus and Freelancer <span className="text-purple">Recent Projects</span>
-      </h1>
+      </motion.h1>
       <div className="flex flex-wrap items-center justify-center p-8 gap-x-20 gap-y-32 lg:gap-x-52 lg:gap-y-20 mt-10">
         {projects.map(({ id, title, des, img, link, githubLink }) => (
           <div

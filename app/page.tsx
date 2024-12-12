@@ -1,7 +1,7 @@
 "use client";
 import { RevealBento } from "@/components/Contact";
 import { DragCards } from "@/components/DragCards";
-import { StickyScrollRevealDemo } from "@/components/Experiance";
+
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
@@ -10,7 +10,7 @@ import { Example } from "@/components/Links";
 import Navbar from "@/components/Navbar";
 import RecentProjects from "@/components/RecentProjects";
 import { BackgroundBeamsWithCollision } from "@/components/ui/AuroraBackgroundProps ";
-
+import Experincec from "@/components/experincec";
 export default function Home() {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden
@@ -19,9 +19,10 @@ export default function Home() {
         <Navbar/>
         <Hero/>
         <Grid/>
+        <Experincec/>
         {/* <HeroParallaxDemo/> */}
         <RecentProjects/>
-        <StickyScrollRevealDemo/>
+        
         {/* <DragCards/>
         <InfiniteMovingCardsDemo/> */}
         {/* <Example/> */}
