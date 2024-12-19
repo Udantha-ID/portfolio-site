@@ -9,7 +9,7 @@ function RecentProjects() {
     <section id="project" className="py-11">
       <motion.h1 
       whileInView={{opacity: 1, y: 0}}
-      initial={{opacity: 0, y: 50}}
+      initial={{opacity: 0, y:-50}}
       transition={{duration: 0.5, delay: 0.5}}
       className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold">
         Campus and Freelancer <span className="text-purple">Recent Projects</span>

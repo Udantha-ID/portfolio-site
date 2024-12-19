@@ -41,7 +41,7 @@ export const Experiences =[
         title: "Version Control",
         year: "2024",
         role: "Juener Full Stack Development",
-        description: "JGit: A distributed version control system used to track changes in source code during software development. GitHub: A platform that hosts Git repositories, enabling collaboration and sharing of code with version control.",
+        description: "Git: A distributed version control system used to track changes in source code during software development. GitHub: A platform that hosts Git repositories, enabling collaboration and sharing of code with version control.",
         technologies: ["Git", "GitHub"]
     },
 ]
@@ -51,7 +51,7 @@ export default function experincec() {
     <div className='border-b border-neutral-900 pb-16'>
         <motion.h1 
         whileInView={{opacity: 1, y:0}}
-        initial={{opacity: 0, y:50}}
+        initial={{opacity: 0, y:-50}}
         transition={{duration: 0.5, delay: 0.5 }}
         className='heading mb-12'>Experiences</motion.h1>
         {Experiences.map((experincec, index) =>(
