@@ -2,17 +2,19 @@ import React from "react";
 import { projects } from "@/data";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/Projectcard";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 function RecentProjects() {
   return (
     <section id="project" className="py-11">
-      <motion.h1 
-      whileInView={{opacity: 1, y: 0}}
-      initial={{opacity: 0, y:-50}}
-      transition={{duration: 0.5, delay: 0.5}}
-      className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold">
-        Campus and Freelancer <span className="text-purple">Recent Projects</span>
+      <motion.h1
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="heading text-center text-2xl md:text-4xl lg:text-5xl font-bold"
+      >
+        Recent <span className="text-purple">Projects</span>
       </motion.h1>
       <div className="flex flex-wrap items-center justify-center p-8 gap-x-20 gap-y-32 lg:gap-x-52 lg:gap-y-20 mt-10">
         {projects.map(({ id, title, des, img, link, githubLink }) => (
@@ -41,10 +43,12 @@ function RecentProjects() {
 
                 {/* Project Image */}
                 <CardItem translateZ={100} className="w-full mt-4">
-                  <img
+                  <Image
                     src={img}
                     alt={title}
-                    className="h-40 lg:h-60 w-full object-cover rounded-xl group-hover:shadow-xl"
+                    width={440} // Set a default width
+                    height={240} // Set a default height
+                    className="rounded-xl object-cover"
                   />
                 </CardItem>
 
@@ -73,7 +77,6 @@ function RecentProjects() {
                     <IconBrandGithub className="w-4 lg:w-5 h-4 lg:h-5" />
                     GitHub
                   </CardItem>
-                  
                 </div>
               </CardBody>
             </CardContainer>
@@ -85,4 +88,3 @@ function RecentProjects() {
 }
 
 export default RecentProjects;
-

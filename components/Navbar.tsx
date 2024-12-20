@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion"; // Ensure this is installed: `npm install framer-motion`
+import { motion } from "framer-motion";
 import logo from "@/assets/logo.svg";
+import Link from "next/link";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -34,7 +35,7 @@ const Navbar = () => {
     >
       <div className="w-full flex justify-between items-center max-w-7xl">
         {/* Logo Section */}
-        <a
+        <Link
           href="/"
           className="flex items-center gap-3"
           onClick={() => {
@@ -46,7 +47,7 @@ const Navbar = () => {
           <p className="text-white text-[18px] font-bold cursor-pointer">
             <span className="sm:block hidden">Full Stack Developer</span>
           </p>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
@@ -60,9 +61,9 @@ const Navbar = () => {
             } text-sm transition-colors px-2.5 py-0.5 rounded-md relative`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`} className="relative z-10">
+            <Link href={`#${nav.id}`} className="relative z-10">
               {nav.title}
-            </a>
+            </Link>
             {active === nav.title && (
               <motion.span
                 layoutId="pill-tab"
@@ -77,7 +78,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
+          <Image
             src="/menu.svg"
             alt="menu"
             width={28}

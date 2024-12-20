@@ -2,8 +2,7 @@ import React from 'react'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import Button from './ui/Button'
-import { FaLocationArrow } from 'react-icons/fa'
-import { DiApple, DiVisualstudio } from 'react-icons/di'
+import { DiVisualstudio } from 'react-icons/di'
 
 
 function Hero() {
@@ -40,7 +39,7 @@ function Hero() {
               title="Show My Work"
               icon={<DiVisualstudio />}
               position='right' 
-              handleClick={function (): void {
+              handleCopy={function (): void {
               throw new Error('Function not implemented.')
               } } />
             </a>

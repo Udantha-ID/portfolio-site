@@ -1,15 +1,14 @@
 "use client";
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
-import  { GlobeDemo }  from './GridGlobe';
-import Lottie from 'lottie-react';
-import animationData from '@/data/confetti.json'
+// import Lottie from 'lottie-react';
+// import animationData from '@/data/confetti.json'
 import { useState } from "react";
 import Button from "./Button";
-import { IoCopyOutline } from "react-icons/io5";
-import { BsDownload, BsLinkedin } from "react-icons/bs";
-import DownloadButton from "./DownloadButton";
-import { FaDownload } from "react-icons/fa";
+import { BsLinkedin } from "react-icons/bs";
+// import Image from "next/image";
+// import DownloadButton from "./DownloadButton";
+// import { FaDownload } from "react-icons/fa";
 
 
 export const BentoGrid = ({
@@ -62,12 +61,12 @@ export const BentoGridItem = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handelDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/InduruUdantha.pdf';
-    link.download = 'InduruUdantha.pdf';
-    link.click();
-  };
+  // const handelDownload = () => {
+  //   const link = document.createElement('a');
+  //   link.href = '/InduruUdantha.pdf';
+  //   link.download = 'InduruUdantha.pdf';
+  //   link.click();
+  // };
   
 
   return (
@@ -85,6 +84,7 @@ export const BentoGridItem = ({
           <div className="w-full h-full absolute">
             <img src={img} 
                  alt={img} 
+                 //fill
                  className={cn(imgClassName, 'object-cover, object-center')}
             />
           </div>
@@ -93,6 +93,7 @@ export const BentoGridItem = ({
             <img
               src={spareImg}
               alt={spareImg}
+              //fill
               className="object-cover object-center w-full h-full"
             />
           )}
@@ -118,13 +119,13 @@ export const BentoGridItem = ({
           {id === 2 && (
           <div className="mt-5 relative background: rgb(6,2,62); background: linear-gradient(90deg, rgba(6,2,62,1) 0%, rgba(5,5,89,1) 99%, rgba(36,74,82,1) 100%);">
               <div className={`absolute -bottom-5 right-7`}>
-              <Lottie
-              options={{
-                animationData:{animationData},
-                loop: true,
-                autoplay: true,
-              }} height={200} width={400}
-            />
+              {/* <Lottie
+                  animationData={animationData}
+                  loop={true}
+                  autoplay={true}
+                  height={200}
+                  width={400}
+              /> */}
               </div>
               {/* <DownloadButton
                 title="DOWNLOAD-CV"
@@ -162,15 +163,6 @@ export const BentoGridItem = ({
         
         {id === 6 && (
           <div className="mt-5 relative">
-              <div className={`absolute -bottom-5 right-7`}>
-              <Lottie
-              options={{
-                animationData:{animationData},
-                loop: true,
-                autoplay: true,
-              }} height={200} width={400}
-            />
-              </div>
               <Button
                 title="Likedin Profile"
                 icon={<BsLinkedin/>}
@@ -178,6 +170,11 @@ export const BentoGridItem = ({
                 otherClasses="!bg-[#161A31]"
                 handleCopy={handleCopy}
               />
+            {copied && (
+              <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
+               Link opened!
+              </div>
+          )}
           </div>
         )}
       </div>

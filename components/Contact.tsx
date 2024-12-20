@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { MotionProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import { SiGithub, SiTiktok, SiGitter, SiYoutube, SiLinkedin, SiWhatsapp, SiFacebook } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiWhatsapp, SiFacebook } from "react-icons/si";
 import emailjs from "emailjs-com";
 import { BackgroundBeamsWithCollision } from "./ui/AuroraBackgroundProps ";
 import { DivOrigami } from "./DivOrigami";
@@ -46,7 +46,7 @@ export const RevealBento = () => {
           "j5XhaYmWWVErqfqKN" // Public Key
         )
         .then(
-          (result) => {
+          () => {
             alert("Message sent successfully!"); // Notify the user of successful submission.
             setForm({ name: "", email: "", message: "" }); // Reset the form fields.
           },

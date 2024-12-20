@@ -1,15 +1,13 @@
 "use client";
 import { RevealBento } from "@/components/Contact";
-import { DragCards } from "@/components/DragCards";
-
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
-import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
-import { InfiniteMovingCardsDemo } from "@/components/InfiniteMovingCardsDemo";
-import { Example } from "@/components/Links";
+// import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
+// import { InfiniteMovingCardsDemo } from "@/components/InfiniteMovingCardsDemo";
+// import { Example } from "@/components/Links";
 import Navbar from "@/components/Navbar";
 import RecentProjects from "@/components/RecentProjects";
-import { BackgroundBeamsWithCollision } from "@/components/ui/AuroraBackgroundProps ";
+// import { BackgroundBeamsWithCollision } from "@/components/ui/AuroraBackgroundProps ";
 import Experincec from "@/components/experincec";
 export default function Home() {
   return (
@@ -22,9 +20,7 @@ export default function Home() {
         <Experincec/>
         {/* <HeroParallaxDemo/> */}
         <RecentProjects/>
-        
-        {/* <DragCards/>
-        <InfiniteMovingCardsDemo/> */}
+        {/*<InfiniteMovingCardsDemo/> */}
         {/* <Example/> */}
         <RevealBento/>        
       </div>

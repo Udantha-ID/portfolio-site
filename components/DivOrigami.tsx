@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SiAmazon, SiFacebook, SiGithub, SiGoogle, SiLinkedin, SiMeta, SiTwitch, SiWhatsapp } from "react-icons/si";
+import { SiFacebook, SiGithub, SiLinkedin, SiTwitch, SiWhatsapp } from "react-icons/si";
 import { twMerge } from "tailwind-merge";
 
 export const DivOrigami = () => {
