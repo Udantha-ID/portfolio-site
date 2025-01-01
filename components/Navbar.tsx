@@ -43,7 +43,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <Image src={logo} alt="logo" width={140}  height={undefined} />
+          <Image 
+              src={logo} 
+              alt="logo" 
+              width={140} 
+              height={undefined} />
           <p className="text-white text-[18px] font-bold cursor-pointer">
             <span className="sm:block hidden">Full Stack Developer</span>
             <span className="block sm:hidden">FSD</span>
