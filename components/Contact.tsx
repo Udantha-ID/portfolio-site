@@ -6,6 +6,8 @@ import { SiGithub, SiLinkedin, SiWhatsapp, SiFacebook } from "react-icons/si";
 import emailjs from "emailjs-com";
 import { BackgroundBeamsWithCollision } from "./ui/AuroraBackgroundProps ";
 import { DivOrigami } from "./DivOrigami";
+import Swal from "sweetalert2";
+
 
 type FormData = {
   name: string;
@@ -47,11 +49,33 @@ export const RevealBento = () => {
         )
         .then(
           () => {
-            alert("Message sent successfully!"); // Notify the user of successful submission.
+            Swal.fire({
+              icon: "success",
+              title: "Email sent successfully..!",
+              text: "I will reply as soon as possible..✌️",
+              customClass: {
+                popup: "bg-gray-900 text-white",
+                title: "text-purple-500",
+                confirmButton: "bg-purple-500 text-white hover:bg-purple-700",
+              },
+            });            
+            //alert("Message sent successfully!"); // Notify the user of successful submission.
             setForm({ name: "", email: "", message: "" }); // Reset the form fields.
           },
           (error) => {
-            alert("Failed to send message. Please try again later."); // Notify the user of failure.
+            Swal.fire({
+              icon: "error",
+              title: "Oops!",
+              text: "Failed to send your message. Please try again later.",
+              showConfirmButton: true,
+              confirmButtonText: "Retry",
+              customClass: {
+                popup: "bg-gray-900 text-white",
+                title: "text-purple-500",
+                confirmButton: "bg-purple-500 text-white hover:bg-purple-700",
+              },
+            });
+            //alert("Failed to send message. Please try again later."); // Notify the user of failure.
             console.error("EmailJS Error:", error); // Log the error for debugging.
           }
         );
@@ -61,7 +85,7 @@ export const RevealBento = () => {
   return (
     <BackgroundBeamsWithCollision className="w-full">
     <section id="contact" className="w-full  lg:w-full  text-zinc-100">
-      <h1 className="heading text-2xl md:text-4xl p-10 lg:text-5xl font-bold">Contact Us</h1>
+      <h1 className="heading text-2xl md:text-4xl p-10 lg:text-5xl sm:text-2xl font-bold">Contact Us</h1>
   {/* <BackgroundBeamsWithCollision>      */}
   <div className="flex flex-col-2 py-8  lg:flex-row gap-32 items-start max-w-6xl mx-auto">
     {/* Left Side: Form */}
