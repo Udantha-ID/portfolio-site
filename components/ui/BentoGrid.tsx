@@ -55,8 +55,14 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
+  const handleCopyMy = () => {
     window.open("https://www.linkedin.com/in/induru-udantha/", "_blank");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyCompany = () => {
+    window.open("https://www.linkedin.com/in/phrasecode/", "_blank");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -127,13 +133,20 @@ export const BentoGridItem = ({
                   width={400}
               /> */}
               </div>
-              {/* <DownloadButton
-                title="DOWNLOAD-CV"
-                icon={<FaDownload/>}
+              <div className="mt-5 relative">
+              <Button
+                title="Likedin Profile"
+                icon={<BsLinkedin/>}
                 position="right"
-                otherClasses="flex gap-3 justify-center items-center"
-                handelDownload={handelDownload}
-              /> */}
+                otherClasses="!bg-[#161A31]"
+                handleCopy={handleCopyCompany}
+              />
+            {copied && (
+              <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
+               Link opened!
+              </div>
+          )}
+          </div>
           </div>
         )}
 
@@ -168,7 +181,7 @@ export const BentoGridItem = ({
                 icon={<BsLinkedin/>}
                 position="right"
                 otherClasses="!bg-[#161A31]"
-                handleCopy={handleCopy}
+                handleCopy={handleCopyMy}
               />
             {copied && (
               <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
