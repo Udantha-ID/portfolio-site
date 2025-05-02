@@ -18,7 +18,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "I'm  Focusing on software engineering internships..",
+      title: "I am currently working as a Software Engineering Intern at Phrasecode..",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
