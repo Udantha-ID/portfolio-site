@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "@/data";
+import { projects, Project } from "@/data";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/Projectcard";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { motion } from "framer-motion";
@@ -17,9 +17,9 @@ function RecentProjects() {
         Recent <span className="text-purple">Projects</span>
       </motion.h1>
       <div className="flex flex-wrap items-center justify-center p-8 gap-x-20 gap-y-32 lg:gap-x-52 lg:gap-y-20 mt-10">
-        {projects.map(({ id, title, des, img, link, githubLink }) => (
+        {projects.map((project: Project) => (
           <div
-            key={id}
+            key={project.id}
             className="h-[20rem] lg:h-[32.5rem] flex items-center justify-center sm:w-80 w-[90vw] lg:w-96"
           >
             <CardContainer containerClassName="group">
@@ -29,7 +29,7 @@ function RecentProjects() {
                   translateZ={50}
                   className="text-base md:text-lg lg:text-xl font-bold text-neutral-600 dark:text-white"
                 >
-                  {title}
+                  {project.title}
                 </CardItem>
 
                 {/* Project Description */}
@@ -38,16 +38,16 @@ function RecentProjects() {
                   translateZ={60}
                   className="text-neutral-500 text-xs md:text-sm max-w-sm mt-2 dark:text-neutral-300"
                 >
-                  {des}
+                  {project.des}
                 </CardItem>
 
                 {/* Project Image */}
                 <CardItem translateZ={100} className="w-full mt-4">
                   <Image
-                    src={img}
-                    alt={title}
-                    width={440} // Set a default width
-                    height={240} // Set a default height
+                    src={project.img}
+                    alt={project.title}
+                    width={440}
+                    height={240}
                     className="rounded-xl object-cover"
                   />
                 </CardItem>
@@ -57,7 +57,7 @@ function RecentProjects() {
                   <CardItem
                     translateZ={20}
                     as="a"
-                    href={link}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3 lg:px-4 py-1 lg:py-2 rounded-xl text-xs lg:text-sm font-normal dark:text-white bg-purple-500 text-white hover:bg-purple-600 transition"
@@ -69,7 +69,7 @@ function RecentProjects() {
                   <CardItem
                     translateZ={20}
                     as="a"
-                    href={githubLink}
+                    href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 lg:px-4 py-1 lg:py-2 rounded-xl text-xs lg:text-sm font-normal text-neutral-500 dark:text-neutral-300 hover:text-neutral-700 hover:bg-gray-500 transition"

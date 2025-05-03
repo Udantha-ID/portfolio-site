@@ -1,3 +1,43 @@
+// Types
+export interface Project {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link: string;
+  githubLink: string;
+}
+
+export interface NavItem {
+  name: string;
+  link: string;
+}
+
+export interface GridItem {
+  id: number;
+  title: string;
+  description: string;
+  className: string;
+  imgClassName: string;
+  titleClassName: string;
+  img: string;
+  spareImg: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  title: string;
+}
+
+export interface Company {
+  id: number;
+  name: string;
+  img: string;
+  nameImg: string;
+}
+
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
