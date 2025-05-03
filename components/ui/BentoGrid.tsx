@@ -134,13 +134,13 @@ export const BentoGridItem = ({
               /> */}
               </div>
               <div className="mt-5 relative">
-              <Button
+              {/* <Button
                 title="Likedin Profile"
                 icon={<BsLinkedin/>}
                 position="right"
                 otherClasses="!bg-[#161A31]"
                 handleCopy={handleCopyCompany}
-              />
+              /> */}
             {copied && (
               <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
                Link opened!
