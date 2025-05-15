@@ -21,7 +21,7 @@ export const Experiences =[
         year: "2024",
         role: "Juener Full Stack Development",
         description: "Node.js: A runtime environment for running JavaScript on the server, used to build scalable server applications. React.js: A library for creating user interfaces, especially single-page apps, using a component-based approach. Vite.js: A fast build tool and development server for modern web projects. Next.js: A React framework for server-side rendering, static site generation, and high-performance web apps. TailwindCSS: A utility-first CSS framework for building custom designs with reusable utility classes.",
-        technologies: ["Node.js", "React.Js", "Next.js", "Bootstrap", "Vite.js","Tailwindcss"]
+        technologies: ["Node.js", "React.Js", "Next.js", "Bootstrap", "Vite.js","Tailwindcss","Spring-Boot"]
     },
     {
         title: "Mobile Application Development",
