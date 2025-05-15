@@ -148,6 +148,16 @@ export const navItems = [
       githubLink: "https://github.com/Udantha-ID/Online-Game",
 
     },
+    {
+      id: 5,
+      title: "GreenSoil",
+      des: "A smart agriculture platform for efficient tree plantation management. It features role-based user access for admins, farmers, buyers, and agronomists; a digital marketplace to buy and sell agricultural products; Land mapping system that helps plan optimal tree placement and generates visual plantation layouts with detailed reports.",
+      img: "/greensoil.png",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      link: "#",
+      githubLink: "https://github.com/Udantha-ID/systemApi_ITPM.git",
+
+    }
   ];
   
   export const testimonials = [
