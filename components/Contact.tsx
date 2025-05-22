@@ -164,7 +164,7 @@ export const RevealBento = () => {
               target="_blank"
             />
             <SocialBlock
-              href="https://wa.me/94756558954"
+              href="https://wa.me/94763904365"
               icon={<SiWhatsapp />}
               bgColor="bg-gradient-to-tr from-green-500 to-green-300"
               target="_blank"
