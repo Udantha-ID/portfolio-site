@@ -131,15 +131,6 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "3D Project-Portfolio",
-      des: "A portfolio website showcasing projects, skills, and achievements in a clean, interactive design. Features include an about section, project highlights, contact forms, and responsive layouts for seamless access across devices..",
-      img: "/p3.png",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "#",
-      githubLink: "https://github.com/Udantha-ID/My-Portfolio-Profile",
-    },
-    {
-      id: 4,
       title: "Online Game",
       des: "An online game system built with Java, compete in real-time, track scores, and view leaderboards. It features multiplayer support, player profiles, and achievements for a personalized experience.",
       img: "/p4.png",
@@ -149,7 +140,7 @@ export const navItems = [
 
     },
     {
-      id: 5,
+      id: 4,
       title: "GreenSoil",
       des: "A smart agriculture platform for efficient tree plantation management. It features role-based user access for admins, farmers, buyers, and agronomists; a digital marketplace to buy and sell agricultural products; Land mapping system that helps plan optimal tree placement and generates visual plantation layouts with detailed reports.",
       img: "/greensoil.png",
