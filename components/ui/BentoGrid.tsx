@@ -6,7 +6,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import { useState } from "react";
 import Button from "./Button";
 import { BsLinkedin } from "react-icons/bs";
-// import Image from "next/image";
+import Image from "next/image";
 // import DownloadButton from "./DownloadButton";
 // import { FaDownload } from "react-icons/fa";
 
@@ -61,19 +61,11 @@ export const BentoGridItem = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleCopyCompany = () => {
-    window.open("https://www.linkedin.com/in/phrasecode/", "_blank");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  // const handelDownload = () => {
-  //   const link = document.createElement('a');
-  //   link.href = '/InduruUdantha.pdf';
-  //   link.download = 'InduruUdantha.pdf';
-  //   link.click();
+  // const handleCopyCompany = () => {
+  //   window.open("https://www.linkedin.com/in/phrasecode/", "_blank");
+  //   setCopied(true);
+  //   setTimeout(() => setCopied(false), 2000);
   // };
-  
 
   return (
     <div
@@ -88,18 +80,18 @@ export const BentoGridItem = ({
     >
       <div className={`${id === 6} && 'flex justify-center'} 'h-full`}>
           <div className="w-full h-full absolute">
-            <img src={img} 
+            <Image src={img} 
                  alt={img} 
-                 //fill
+                 fill
                  className={cn(imgClassName, 'object-cover, object-center')}
             />
           </div>
           <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
           {spareImg && (
-            <img
+            <Image
               src={spareImg}
               alt={spareImg}
-              //fill
+              fill
               className="object-cover object-center w-full h-full"
             />
           )}
