@@ -6,7 +6,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import { useState } from "react";
 import Button from "./Button";
 import { BsLinkedin } from "react-icons/bs";
-import Image from "next/image";
+//import Image from "next/image";
 import DownloadButton from "./DownloadButton";
 import { FaDownload } from "react-icons/fa";
 import { downloadFile } from "@/utils/download";
