@@ -7,8 +7,9 @@ import { useState } from "react";
 import Button from "./Button";
 import { BsLinkedin } from "react-icons/bs";
 import Image from "next/image";
-// import DownloadButton from "./DownloadButton";
-// import { FaDownload } from "react-icons/fa";
+import DownloadButton from "./DownloadButton";
+import { FaDownload } from "react-icons/fa";
+import { downloadFile } from "@/utils/download";
 
 
 export const BentoGrid = ({
@@ -80,18 +81,18 @@ export const BentoGridItem = ({
     >
       <div className={`${id === 6} && 'flex justify-center'} 'h-full`}>
           <div className="w-full h-full absolute">
-            <Image src={img} 
+            <img src={img} 
                  alt={img} 
-                 fill
+                 //fill
                  className={cn(imgClassName, 'object-cover, object-center')}
             />
           </div>
           <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
           {spareImg && (
-            <Image
+            <img
               src={spareImg}
               alt={spareImg}
-              fill
+              //fill
               className="object-cover object-center w-full h-full"
             />
           )}
@@ -125,7 +126,13 @@ export const BentoGridItem = ({
                   width={400}
               /> */}
               </div>
-              <div className="mt-5 relative">
+              <div className="mt-5 relative flex justify-center">
+                <DownloadButton
+                  title="Download CV"
+                  icon={<FaDownload />}
+                  position="right"
+                  handelDownload={() => downloadFile('/InduruUdantha.pdf', 'Induru_Udantha_CV.pdf')}
+                />
               {/* <Button
                 title="Likedin Profile"
                 icon={<BsLinkedin/>}

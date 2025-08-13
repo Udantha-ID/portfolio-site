@@ -58,7 +58,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "I am currently working as a Software Engineering Intern at Phrasecode..",
+      title: "I'm focusing on a Software Engineering internship.",
       description: "",
       className: "lg:col-span-2 md:col-span-3 md:row-span-2",
       imgClassName: "",
@@ -89,7 +89,7 @@ export const navItems = [
   
     {
       id: 5,
-      title: "Currently building Web Devolopment..",
+      title: "Currently building Web Devolopment | AI & ML Enthusiast..",
       description: "",
       className: "md:col-span-3 md:row-span-2",
       imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
