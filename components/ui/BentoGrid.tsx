@@ -61,13 +61,7 @@ export const BentoGridItem = ({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  // const handleCopyCompany = () => {
-  //   window.open("https://www.linkedin.com/in/phrasecode/", "_blank");
-  //   setCopied(true);
-  //   setTimeout(() => setCopied(false), 2000);
-  // };
-
+  
   return (
     <div
       className={cn(
