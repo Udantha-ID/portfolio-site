@@ -31,6 +31,13 @@ export const Experiences =[
         technologies: ["Android Studeo", "Kotlin"]
     },
     {
+        title: "Cloud Platforms",
+        year: "2024",
+        role: "Junior Full Stack Developer",
+        description: "Google Cloud Platform (GCP): A suite of cloud computing services for deploying, managing, and scaling applications. AWS Serverless: A cloud-native development model that allows building and running applications without managing servers, using services like AWS Lambda, API Gateway, and DynamoDB.",
+        technologies: ["Google Cloud Platform", "AWS Serverless"]
+    },    
+    {
         title: "Database",
         year: "2024",
         role: "Juener Full Stack Development",
@@ -42,7 +49,7 @@ export const Experiences =[
         year: "2024",
         role: "Juener Full Stack Development",
         description: "Git: A distributed version control system used to track changes in source code during software development. GitHub: A platform that hosts Git repositories, enabling collaboration and sharing of code with version control.",
-        technologies: ["Git", "GitHub"]
+        technologies: ["Git"]
     },
 ]
 
