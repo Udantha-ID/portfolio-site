@@ -131,7 +131,7 @@ export const BentoGridItem = ({
                   title="Download CV"
                   icon={<FaDownload />}
                   position="right"
-                  handelDownload={() => downloadFile('/InduruUdantha.pdf', 'Induru_Udantha_CV.pdf')}
+                  handelDownload={() => downloadFile('/InduruUdanthaResume.pdf', 'Induru_Udantha_SoftwareEngineer_CV.pdf')}
                 />
               {/* <Button
                 title="Likedin Profile"
