@@ -148,6 +148,16 @@ export const navItems = [
       link: "#",
       githubLink: "https://github.com/Udantha-ID/systemApi_ITPM.git",
 
+    },
+    {
+      id: 5,
+      title: "Exide-batter-ai-agent",
+      des: "ExideGPT is an AI-powered chatbot that helps users get expert advice about Exide batteries for cars, boats, and industrial use. With a modern, user-friendly interface inspired by F1GPT, it makes it easy to ask questions and get instant, accurate answers. ExideGPT is designed to improve customer service in the battery industry by providing fast, reliable support using advanced AI technology.",
+      img: "/ui.png",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      link: "#",
+      githubLink: "https://github.com/Udantha-ID/Exide-batter-ai-agent.git",
+
     }
   ];
   
