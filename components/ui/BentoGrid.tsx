@@ -9,7 +9,6 @@ import { BsLinkedin } from "react-icons/bs";
 //import Image from "next/image";
 import OpenButton from "./OpenButton";
 import { TbFileCv } from "react-icons/tb";
-import { downloadFile } from "@/utils/download";
 
 
 export const BentoGrid = ({
