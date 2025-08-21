@@ -111,14 +111,7 @@ export const BentoGridItem = ({
           {id === 2 && (
           <div className="mt-5 relative background: rgb(6,2,62); background: linear-gradient(90deg, rgba(6,2,62,1) 0%, rgba(5,5,89,1) 99%, rgba(36,74,82,1) 100%);">
               <div className={`absolute -bottom-5 right-7`}>
-              {/* <Lottie
-                  animationData={animationData}
-                  loop={true}
-                  autoplay={true}
-                  height={200}
-                  width={400}
-              /> */}
-              </div>
+          </div>
               <div className="mt-5 relative flex justify-center">
                 <OpenButton
                    title="Open My Resume"
