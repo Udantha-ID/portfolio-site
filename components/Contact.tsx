@@ -82,15 +82,15 @@ export const RevealBento = () => {
   return (
     <BackgroundBeamsWithCollision className="w-full">
       <section id="contact" className="w-full text-zinc-100">
-        <h1 className="heading text-2xl md:text-4xl p-10  lg:text-5xl sm:text-2xl font-bold">Contact Us</h1>
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-32 items-start max-w-6xl mx-auto  lg:py-8">
+        <h1 className="heading text-2xl md:text-4xl p-4 sm:p-6 lg:p-10 lg:text-5xl sm:text-2xl font-bold">Contact Us</h1>
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-32 items-start max-w-6xl mx-auto lg:py-8">
           {/* Left Side: Form */}
           <motion.form
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             onSubmit={handleSubmit}
-            className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 p-8 shadow-2xl text-white"
+            className="w-full lg:w-1/2 rounded-2xl bg-gradient-to-tr from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 p-6 sm:p-8 shadow-2xl text-white"
           >
             <h2 className="mb-6 text-3xl font-extrabold bg-clip-text">Send an Email :</h2>
             <div className="mb-6">
@@ -143,7 +143,7 @@ export const RevealBento = () => {
             initial={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             animate="animate"
-            className="grid justify-center items-center grid-cols-4 gap-12 lg:w-1/2"
+            className="grid justify-center items-center grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 lg:w-1/2 mx-auto"
           >
             <SocialBlock
               href="https://www.linkedin.com/in/induru-udantha/"
@@ -190,7 +190,7 @@ const SocialBlock = ({ href, icon, bgColor, target }: BlockProps & { target?: st
   <motion.div
     whileHover={{ scale: 2.1 }}
     className={twMerge(
-      `flex justify-center items-center h-24 w-24 md:h-28 md:w-28 lg:h-24 lg:w-24 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300`,
+      `flex justify-center items-center h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-24 lg:w-24 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300 transform hover:scale-105`,
       bgColor
     )}
   >
