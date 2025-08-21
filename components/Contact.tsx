@@ -190,7 +190,7 @@ const SocialBlock = ({ href, icon, bgColor, target }: BlockProps & { target?: st
   <motion.div
     whileHover={{ scale: 2.1 }}
     className={twMerge(
-      `flex justify-center items-center h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-24 lg:w-24 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300 transform hover:scale-105`,
+      `flex justify-center items-center h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-24 lg:w-24 rounded-3xl shadow-lg hover:shadow-slate-600 transition-shadow duration-300 transform hover:scale-105`,
       bgColor
     )}
   >
