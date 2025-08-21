@@ -124,7 +124,7 @@ export const BentoGridItem = ({
                 <OpenButton
                    title="Open My Resume"
                    icon={<TbFileCv />}
-                   otherClasses="bg-blue-500 hover:bg-blue-600 text-white"
+                   otherClasses="bg-gradient-to-r from-blue-600/80 via-cyan-500/80 to-blue-600/80 backdrop-blur-sm border border-white/20 hover:from-blue-500/90 hover:via-cyan-400/90 hover:to-blue-500/90 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 ease-out text-white font-medium"
                    position="right"
                    handleClick={() => window.open('/InduruUdanthaResume.pdf', '_blank')}
                 />
