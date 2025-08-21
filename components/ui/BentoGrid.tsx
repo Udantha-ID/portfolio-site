@@ -7,8 +7,8 @@ import { useState } from "react";
 import Button from "./Button";
 import { BsLinkedin } from "react-icons/bs";
 //import Image from "next/image";
-import DownloadButton from "./DownloadButton";
-import { FaDownload } from "react-icons/fa";
+import OpenButton from "./OpenButton";
+import { TbFileCv } from "react-icons/tb";
 import { downloadFile } from "@/utils/download";
 
 
@@ -121,20 +121,14 @@ export const BentoGridItem = ({
               /> */}
               </div>
               <div className="mt-5 relative flex justify-center">
-                <DownloadButton
-                  title="Download CV"
-                  icon={<FaDownload />}
-                  position="right"
-                  handelDownload={() => downloadFile('/InduruUdanthaResume.pdf', 'Induru_Udantha_SoftwareEngineer_CV.pdf')}
+                <OpenButton
+                   title="Open My Resume"
+                   icon={<TbFileCv />}
+                   otherClasses="bg-blue-500 hover:bg-blue-600 text-white"
+                   position="right"
+                   handleClick={() => window.open('/InduruUdanthaResume.pdf', '_blank')}
                 />
-              {/* <Button
-                title="Likedin Profile"
-                icon={<BsLinkedin/>}
-                position="right"
-                otherClasses="!bg-[#161A31]"
-                handleCopy={handleCopyCompany}
-              /> */}
-            {copied && (
+              {copied && (
               <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
                Link opened!
               </div>

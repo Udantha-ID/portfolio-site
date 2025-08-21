@@ -1,23 +1,24 @@
+// OpenButton.tsx
 import React from 'react'
 
-const DownloadButton = ({
+const OpenButton = ({
     title,
     icon,
     position,
-    handelDownload,
+    handleClick,
     otherClasses,
 }: {
     title: string;
     icon: React.ReactNode;
     position: 'left' | 'right';
-    handelDownload: () => void;
+    handleClick: () => void;
     otherClasses?: string;
 }) => {
     return (
         <button
-            className={`px-8 py-3.5 flex items-center justify-center rounded-md bg-[#1ED760] font-bold text-black tracking-widest 
-                uppercase transform hover:scale-105 hover:bg-[#21e065] transition-colors duration-200 ${otherClasses}`}
-            onClick={handelDownload}
+            className={`px-8 py-3.5 flex items-center justify-center rounded-md font-bold text-black tracking-widest 
+                uppercase transform hover:scale-105 transition-colors duration-200 ${otherClasses}`}
+            onClick={handleClick}
         >
             {position === 'left' && <span className="mr-2">{icon}</span>}
             {title}
@@ -26,4 +27,4 @@ const DownloadButton = ({
     )
 }
 
-export default DownloadButton
+export default OpenButton
