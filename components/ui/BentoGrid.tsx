@@ -118,7 +118,7 @@ export const BentoGridItem = ({
                    icon={<TbFileCv />}
                    otherClasses="bg-gradient-to-r from-blue-600/80 via-cyan-500/80 to-blue-600/80 backdrop-blur-sm border border-white/20 hover:from-blue-500/90 hover:via-cyan-400/90 hover:to-blue-500/90 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 ease-out text-white font-medium"
                    position="right"
-                   handleClick={() => window.open('/InduruUdanthaResume.pdf', '_blank')}
+                   handleClick={() => window.open('/Induru Udantha – intern Software engineer.pdf', '_blank')}
                 />
               {copied && (
               <div className="absolute top-0 left-0 bg-transparent text-white px-4 py-2 rounded">
