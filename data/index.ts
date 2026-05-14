@@ -7,6 +7,8 @@ export interface Project {
   iconLists: string[];
   link: string;
   githubLink: string;
+  category: "web" | "game" | "ai";
+  techStack: string[];
 }
 
 export interface NavItem {
@@ -109,7 +111,7 @@ export const navItems = [
     },
   ];
   
-  export const projects = [
+  export const projects: Project[] = [
     {
       id: 1,
       title: "Mr.Automotive Vehicle Service Center",
@@ -118,6 +120,8 @@ export const navItems = [
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "#",
       githubLink: "https://github.com/Udantha-ID/mr.Automotive",
+      category: "web",
+      techStack: ["React.js", "Node.js", "MongoDB", "TailwindCSS"],
     },
     {
       id: 2,
@@ -127,7 +131,8 @@ export const navItems = [
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
       link: "",
       githubLink: "https://github.com/Udantha-ID/Event-plane",
-
+      category: "web",
+      techStack: ["Next.js", "TypeScript", "MySQL", "TailwindCSS"],
     },
     {
       id: 3,
@@ -137,7 +142,8 @@ export const navItems = [
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "#",
       githubLink: "https://github.com/Udantha-ID/Online-Game",
-
+      category: "game",
+      techStack: ["Java", "Sockets", "SQLite"],
     },
     {
       id: 4,
@@ -147,18 +153,20 @@ export const navItems = [
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "#",
       githubLink: "https://github.com/Udantha-ID/systemApi_ITPM.git",
-
+      category: "web",
+      techStack: ["Next.js", "Spring Boot", "MongoDB", "TailwindCSS"],
     },
     {
       id: 5,
-      title: "Exide-batter-ai-agent",
-      des: "ExideGPT is an AI-powered chatbot that helps users get expert advice about Exide batteries for cars, boats, and industrial use. With a modern, user-friendly interface inspired by F1GPT, it makes it easy to ask questions and get instant, accurate answers. ExideGPT is designed to improve customer service in the battery industry by providing fast, reliable support using advanced AI technology.",
+      title: "Exide Battery AI Agent",
+      des: "ExideGPT is an AI-powered chatbot that helps users get expert advice about Exide batteries for cars, boats, and industrial use. With a modern, user-friendly interface inspired by F1GPT, it makes it easy to ask questions and get instant, accurate answers.",
       img: "/ui.png",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
       link: "#",
       githubLink: "https://github.com/Udantha-ID/Exide-batter-ai-agent.git",
-
-    }
+      category: "ai",
+      techStack: ["Next.js", "OpenAI API", "TypeScript", "TailwindCSS"],
+    },
   ];
   
   export const testimonials = [

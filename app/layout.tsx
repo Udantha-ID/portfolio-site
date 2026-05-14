@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import {ThemeProvider} from './../app/provider'
+import { ThemeProvider } from "./../app/provider";
+import CustomCursor from "@/components/CustomCursor";
+import PageLoader from "@/components/PageLoader";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,28 +17,31 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevNet",
-  description: "Im Intern Software Engineer",
+  title: "DevNest — Induru Udantha",
+  description: "Software Engineer & SLIIT undergraduate passionate about full-stack development and AI.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+    /*
+     * suppressHydrationWarning is required by next-themes:
+     * the `class` attribute is written client-side after hydration,
+     * so React would otherwise warn about a server/client mismatch.
+     */
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <PageLoader />
+          <CustomCursor />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,29 +1,32 @@
 "use client";
+import Navbar          from "@/components/Navbar";
+import Hero            from "@/components/Hero";
+import Grid            from "@/components/Grid";
+import Experincec      from "@/components/experincec";
+import RecentProjects  from "@/components/RecentProjects";
 import { RevealBento } from "@/components/Contact";
-import Grid from "@/components/Grid";
-import Hero from "@/components/Hero";
-// import { HeroParallaxDemo } from "@/components/HeroParallaxDemo";
-// import { InfiniteMovingCardsDemo } from "@/components/InfiniteMovingCardsDemo";
-// import { Example } from "@/components/Links";
-import Navbar from "@/components/Navbar";
-import RecentProjects from "@/components/RecentProjects";
-// import { BackgroundBeamsWithCollision } from "@/components/ui/AuroraBackgroundProps ";
-import Experincec from "@/components/experincec";
+import Footer          from "@/components/Footer";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
+
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden
-    mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-        <Navbar/>
-        <Hero/>
-        <Grid/>
-        <Experincec/>
-        {/* <HeroParallaxDemo/> */}
-        <RecentProjects/>
-        {/*<InfiniteMovingCardsDemo/> */}
-        {/* <Example/> */}
-        <RevealBento/>        
-      </div>
-    </main>
+    <>
+      {/* Scroll progress line — sits above everything */}
+      <ScrollProgressBar />
+
+      <main
+        className="relative flex flex-col overflow-hidden"
+        style={{ backgroundColor: "var(--bg-primary)" }}
+      >
+        <Navbar />
+        <Hero />
+        <Grid />
+        <Experincec />
+        <RecentProjects />
+        <RevealBento />
+      </main>
+
+      <Footer />
+    </>
   );
 }
